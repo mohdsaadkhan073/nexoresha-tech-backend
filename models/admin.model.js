@@ -20,6 +20,10 @@ const adminSchema = new mongoose.Schema(
             type: String,
             required: [true, "Admin password is required"],
             minlength: [6, "Password must be at least 6 characters"]
+        },
+        tokenVersion: {
+            type: Number,
+            default: 0
         }
     },
     {

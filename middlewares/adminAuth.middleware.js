@@ -29,6 +29,14 @@ const adminAuth = async (req, res, next) => {
             });
         }
 
+        // Check if token version matches to detect if logged out/invalidated
+        if (decoded.tokenVersion !== admin.tokenVersion) {
+            return res.status(401).json({
+                success: false,
+                message: "Access denied. Token has been invalidated or admin logged out."
+            });
+        }
+
         // Attach the admin document to the request object
         req.admin = admin;
         next();

@@ -13,6 +13,7 @@ const connectDB = async () => {
     catch(error)
     {
         console.log("Error while connecting to MongoDB...");
+        console.error(error);
         console.log("Server will continue without database");
     }
 }

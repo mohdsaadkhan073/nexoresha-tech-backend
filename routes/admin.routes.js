@@ -3,6 +3,7 @@ const router = express.Router();
 const adminAuth = require("../middlewares/adminAuth.middleware");
 const {
     loginAdmin,
+    logoutAdmin,
     getAllInterns,
     getPendingInterns,
     getApprovedInterns,
@@ -17,6 +18,7 @@ const {
 router.post("/login", loginAdmin);
 
 // --- Protected Routes (All require admin authentication middleware) ---
+router.post("/logout", adminAuth, logoutAdmin);
 router.get("/interns", adminAuth, getAllInterns);
 router.get("/interns/pending", adminAuth, getPendingInterns);
 router.get("/interns/approved", adminAuth, getApprovedInterns);
