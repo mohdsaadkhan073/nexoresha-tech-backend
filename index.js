@@ -16,7 +16,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 app.use("/api/admin", adminRoutes);
-app.use("/api/intern")
+app.use("/api/intern", internRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
