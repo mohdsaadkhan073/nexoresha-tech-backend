@@ -1,5 +1,6 @@
 const express = require("express");
-const { registerIntern } = require("../controllers/intern.controller");
+const { registerIntern, loginIntern, getInternStatus } = require("../controllers/intern.controller");
+const internAuth = require("../middlewares/internAuth.middleware");
 const upload = require("../middlewares/upload.middleware");
 
 const router = express.Router();
@@ -13,5 +14,11 @@ router.post(
     ]),
     registerIntern
 );
+
+// Route for intern login
+router.post("/login", loginIntern);
+
+// Route to get intern status
+router.get("/status", internAuth, getInternStatus);
 
 module.exports = router;
