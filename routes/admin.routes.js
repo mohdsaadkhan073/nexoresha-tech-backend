@@ -26,6 +26,6 @@ router.get("/interns/rejected", adminAuth, getRejectedInterns);
 router.get("/interns/:id", adminAuth, getInternById);
 router.patch("/interns/:id/approve", adminAuth, approveIntern);
 router.patch("/interns/:id/reject", adminAuth, rejectIntern);
-router.delete("/interns/:id", adminAuth, deleteIntern);
+router.delete("/interns/delete/:id", adminAuth, deleteIntern);
 
 module.exports = router;
