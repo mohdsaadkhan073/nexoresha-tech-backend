@@ -1,0 +1,508 @@
+{
+  "info": {
+    "_postman_id": "e052a2ed-d33e-437e-9e8a-f3ca8affdc41",
+    "name": "Intern Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48305167",
+    "_collection_link": "https://go.postman.co/collection/48305167-e052a2ed-d33e-437e-9e8a-f3ca8affdc41?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/admin/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Interns",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"admin@123\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pending Interns",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/pending",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "pending"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Approved Interns",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{supabase_service_role_api_key_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/approved",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "approved"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Rejected Interns",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/rejected",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "rejected"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Intern by ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/6a379f75773ff3d1a29bf3a9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "6a379f75773ff3d1a29bf3a9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve Specific Intern",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/6a379f75773ff3d1a29bf3a9/approve",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "6a379f75773ff3d1a29bf3a9",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject Specific Intern",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"reason\": \"Not suitable for this company\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/6a379f75773ff3d1a29bf3a9/reject",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "6a379f75773ff3d1a29bf3a9",
+                "reject"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Specific Interns",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_0bj8}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/admin/interns/delete/6a379f75773ff3d1a29bf3a9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "admin",
+                "interns",
+                "delete",
+                "6a379f75773ff3d1a29bf3a9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Interns",
+      "item": [
+        {
+          "name": "Intern Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "uuid": "c64acbd0-3aa3-42ac-b9bd-cfdeaba0e7a2",
+                  "value": "Aarav Sharma"
+                },
+                {
+                  "key": "email",
+                  "value": "aarav.sharma@example.com",
+                  "type": "text",
+                  "uuid": "0f72738e-3c97-4fb1-a527-440e89634fa1"
+                },
+                {
+                  "key": "password",
+                  "value": "aaravsharma",
+                  "type": "text",
+                  "uuid": "faba37f7-b5c1-40e6-b13e-9f1b812bbde0"
+                },
+                {
+                  "key": "phone",
+                  "value": "9876543210",
+                  "type": "text",
+                  "uuid": "4e5034ca-ca3c-445d-a8e3-3e1b679bf013"
+                },
+                {
+                  "key": "aadhaarNumber",
+                  "value": "123456789012",
+                  "type": "text",
+                  "uuid": "c0c6bf43-6509-4043-b5ee-4759e8db7a56"
+                },
+                {
+                  "key": "collegeName",
+                  "value": "Nexoresha Institute of Technology",
+                  "type": "text",
+                  "uuid": "c441558f-d134-4655-b461-880eaf1bbc7d"
+                },
+                {
+                  "key": "yearOfStudy",
+                  "value": "2",
+                  "type": "text",
+                  "uuid": "5caeb152-444a-4088-a700-4e8c9be1e938"
+                },
+                {
+                  "key": "collegeIdCard",
+                  "type": "file",
+                  "uuid": "cf673c1e-2765-4d70-a30c-e368f9ae020f",
+                  "src": "/C:/Users/Mohd-Saad/Downloads/Id Card.jpg"
+                },
+                {
+                  "key": "aadhaarCard",
+                  "type": "file",
+                  "uuid": "d5f0834f-7d98-4915-be65-9efd7e4f7cdd",
+                  "src": "/C:/Users/Mohd-Saad/Downloads/aadharcard.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/intern/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "intern",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Intern Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"aarav.sharma@example.com\",\r\n    \"password\": \"aaravsharma\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/intern/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "intern",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Intern Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{json_web_token_16vf}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/intern/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "intern",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0bj8",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0bj8",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_16vf",
+      "secret": true
+    }
+  ]
+}
